@@ -20,7 +20,7 @@ public class FlightController {
         flightService.createFlight(flight);
     }
 
-    @GetMapping("/all")
+    @GetMapping("")
     public List<Flight> getAllFlights(){
         return flightService.getAllFlights();
     }
