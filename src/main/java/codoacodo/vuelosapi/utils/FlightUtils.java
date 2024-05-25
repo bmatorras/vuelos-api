@@ -1,6 +1,6 @@
 package codoacodo.vuelosapi.utils;
 
-import codoacodo.vuelosapi.model.Dolar;
+import codoacodo.vuelosapi.model.Dollar;
 import codoacodo.vuelosapi.model.Flight;
 import codoacodo.vuelosapi.model.FlightDTO;
 import org.springframework.context.annotation.Bean;
@@ -29,9 +29,9 @@ public class FlightUtils {
                 flight.getFrequency())).collect(Collectors.toList());
     }
 
-    public Dolar fetchDolar(){
+    public Dollar fetchDollar(){
         RestTemplate restTemplate = restTemplate();
-        return restTemplate.getForObject("https://dolarapi.com/v1/dolares/tarjeta", Dolar.class);
+        return restTemplate.getForObject("https://dolarapi.com/v1/dolares/tarjeta", Dollar.class);
     }
 
 }

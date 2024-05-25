@@ -1,6 +1,6 @@
 package codoacodo.vuelosapi.configuration;
 
-import codoacodo.vuelosapi.model.Dolar;
+import codoacodo.vuelosapi.model.Dollar;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -12,9 +12,9 @@ public class FlightConfiguration {
         return new RestTemplate();
     }
 
-    public Dolar[] fetchAllDolars(){
+    public Dollar[] fetchAllDollars(){
         RestTemplate restTemplate = restTemplate();
         String apiUrl = "https://dolarapi.com/v1/dolares";
-        return restTemplate.getForEntity(apiUrl,Dolar[].class).getBody();
+        return restTemplate.getForEntity(apiUrl, Dollar[].class).getBody();
     }
 }

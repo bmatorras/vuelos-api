@@ -2,7 +2,7 @@ package codoacodo.vuelosapi.services;
 
 import codoacodo.vuelosapi.exceptions.ResourceNotFoundException;
 import codoacodo.vuelosapi.model.Company;
-import codoacodo.vuelosapi.model.Dolar;
+import codoacodo.vuelosapi.model.Dollar;
 import codoacodo.vuelosapi.model.Flight;
 import codoacodo.vuelosapi.model.FlightDTO;
 import codoacodo.vuelosapi.repository.CompanyRepository;
@@ -35,9 +35,9 @@ public class FlightService {
     }
 
     public List<FlightDTO> getAllFlights(){
-        double dolarPrice = getDolar();
+        double dollarPrice = getDollar();
         List<Flight> flights = flightsRepository.findAll();
-        return flightUtils.flightMapper(flights, dolarPrice);
+        return flightUtils.flightMapper(flights, dollarPrice);
     }
 
     public Optional<Flight> findFlightByID(Long id) {
@@ -64,8 +64,8 @@ public class FlightService {
                 return flightUtils.detectDeals(flights, dealPrice);
     }
 
-    private double getDolar() {
-        Dolar dolar = flightUtils.fetchDolar();
-        return dolar.getAverage();
+    private double getDollar() {
+        Dollar dollar = flightUtils.fetchDollar();
+        return dollar.getAverage();
     }
 }
